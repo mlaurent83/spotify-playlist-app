@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Playlists from './components/Playlists';
 import Users from './components/Users'
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <div className="App">
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/playlists" element={<Playlists />} />
