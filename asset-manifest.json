@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/spotify-playlist-app/static/css/main.147245c1.css",
-    "main.js": "/spotify-playlist-app/static/js/main.3d2a77af.js",
+    "main.css": "/spotify-playlist-app/static/css/main.51bd3757.css",
+    "main.js": "/spotify-playlist-app/static/js/main.8de33d19.js",
     "static/js/453.ab9fe123.chunk.js": "/spotify-playlist-app/static/js/453.ab9fe123.chunk.js",
     "index.html": "/spotify-playlist-app/index.html",
-    "main.147245c1.css.map": "/spotify-playlist-app/static/css/main.147245c1.css.map",
-    "main.3d2a77af.js.map": "/spotify-playlist-app/static/js/main.3d2a77af.js.map",
+    "main.51bd3757.css.map": "/spotify-playlist-app/static/css/main.51bd3757.css.map",
+    "main.8de33d19.js.map": "/spotify-playlist-app/static/js/main.8de33d19.js.map",
     "453.ab9fe123.chunk.js.map": "/spotify-playlist-app/static/js/453.ab9fe123.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.147245c1.css",
-    "static/js/main.3d2a77af.js"
+    "static/css/main.51bd3757.css",
+    "static/js/main.8de33d19.js"
   ]
 }
