@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Playlists from './components/Playlists';
 import Songs from './components/Songs';
+import Users from './components/Users'
 
 function App() {
   return (
