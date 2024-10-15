@@ -10,11 +10,11 @@ p {
   margin: 20px 0;
 }
 
-.users-page {
+.songs-page {
   text-align: center;
 }
 
-.users-page a{
+.songs-page a{
   display: inline-block;
   margin: 10px;
   margin-top: 50px;
@@ -27,6 +27,6 @@ p {
   text-align: center;
 }
 
-.users-page a:hover {
+.songs-page a:hover {
   background-color: #535353;
 }
