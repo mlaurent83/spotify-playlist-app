@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/songs" element={<Songs />} />
+          <Route path="/users" element={<Users />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
