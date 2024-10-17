@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './SongList.css'; // We'll create this file for styling
+import './SongList.css';
 
 const API_KEY = '2138722295ab224a1895a9500759411f';
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
