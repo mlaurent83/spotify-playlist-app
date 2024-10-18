@@ -5,11 +5,13 @@ import './SongList.css';
 const API_KEY = '2138722295ab224a1895a9500759411f';
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
 
-function SongList() {
+function SongList({ onPlaylistCreate }) {
   const [songs, setSongs] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [playlistName, setPlaylistName] = useState('');
+  const [showNameInput, setShowNameInput] = useState(false);
 
   useEffect(() => {
     const fetchTopTracks = async () => {
@@ -43,6 +45,20 @@ function SongList() {
     setPlaylist(playlist.filter(item => item.url !== song.url));
   };
 
+  const handleMakePlaylist = () => {
+    setShowNameInput(true);
+  };
+
+  const handleNameSubmit = (e) => {
+    e.preventDefault();
+    if (playlistName.trim() && playlist.length > 0) {
+      onPlaylistCreate({ name: playlistName, songs: playlist });
+      setPlaylistName('');
+      setPlaylist([]);
+      setShowNameInput(false);
+    }
+  };
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
@@ -71,6 +87,21 @@ function SongList() {
             </li>
           ))}
         </ul>
+        {playlist.length > 0 && !showNameInput && (
+          <button onClick={handleMakePlaylist}>Make Playlist</button>
+        )}
+        {showNameInput && (
+          <form onSubmit={handleNameSubmit}>
+            <input
+              type="text"
+              value={playlistName}
+              onChange={(e) => setPlaylistName(e.target.value)}
+              placeholder="Enter playlist name"
+              required
+            />
+            <button type="submit">Create Playlist</button>
+          </form>
+        )}
       </div>
     </div>
   );
