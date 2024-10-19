@@ -61,7 +61,7 @@ function Home() {
       <div className="content">
         <h1>Welcome to Spotify Playlist Creator</h1>
         <p>Create and share your favorite playlists!</p>
-        <nav>
+        <nav className='navigation'>
           <Link to="/playlists">View Playlists</Link>
           <Link to="/songs">View Songs</Link>
           <Link to="/users">View Users</Link>
