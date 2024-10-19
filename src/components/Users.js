@@ -12,8 +12,8 @@ function Users() {
       <div className="user-grid">
           {initialUsers.map((user) => (
             <div className="user-card">
-              <h3>{user.first_name}</h3>
-              <p>{user.last_name}</p>
+              <h3>{user.first_name} {user.last_name}</h3>
+              <p>See playlists</p>
             </div>
           ))}
         </div>
