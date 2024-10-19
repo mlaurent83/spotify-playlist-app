@@ -8,7 +8,7 @@ function Playlists({ playlists }) {
     <div className="playlists">
       <h1>Your Playlists</h1>
       {playlists.length === 0 ? (
-        <p>No playlists created yet.</p>
+        <p>No playlists created yet. Go to "Songs" to create a playlist!</p>
       ) : (
         <ul>
           {playlists.map((playlist, index) => (
@@ -23,7 +23,7 @@ function Playlists({ playlists }) {
             </div>
           ))}
         </div>
-              {/* You can add more details or a link to view the full playlist */}
+              {/* add more details or a link to view the full playlist */}
             </li>
           ))}
         </ul>
