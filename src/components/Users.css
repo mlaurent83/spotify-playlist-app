@@ -35,6 +35,8 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .user-card {
@@ -48,4 +50,14 @@ p {
 .user-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.user-card h3 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.user-card p {
+  margin: 0 0 15px;
+  color: #666;
 }
