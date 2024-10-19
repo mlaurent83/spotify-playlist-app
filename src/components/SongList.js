@@ -65,7 +65,8 @@ function SongList({ onPlaylistCreate }) {
   return (
     <div className="song-list-container">
       <div className="songs-section">
-        <h2>Top Tracks</h2>
+        <h2>Top tracks this week</h2>
+        <p>Select the songs you like and create a playlist!</p>
         <div className="song-grid">
           {songs.map((song) => (
             <div key={song.url} className="song-card">
