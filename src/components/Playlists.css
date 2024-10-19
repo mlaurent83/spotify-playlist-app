@@ -30,3 +30,7 @@ p {
 .playlist-page a:hover {
   background-color: #535353;
 }
+
+ul {
+  list-style-type: none;
+}

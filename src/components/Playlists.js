@@ -6,14 +6,13 @@ import SongList from './SongList';
 function Playlists({ playlists }) {
   return (
     <div className="playlists">
-      <h2>Your Playlists</h2>
+      <h1>Your Playlists</h1>
       {playlists.length === 0 ? (
         <p>No playlists created yet.</p>
       ) : (
         <ul>
           {playlists.map((playlist, index) => (
             <li key={index}>
-              <h3>{playlist.name}</h3>
               <p>Your {playlist.name} playlist has {playlist.songs.length} songs!</p>
               <div className="song-grid">
             {playlist.songs.map((song) => (
