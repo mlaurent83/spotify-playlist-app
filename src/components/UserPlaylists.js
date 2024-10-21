@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { initialUsers } from './seedData';
+import './UserPlaylists.css';
 
 function UserPlaylists() {
   const { userId } = useParams();
@@ -14,26 +15,29 @@ function UserPlaylists() {
     <div className="user-playlists">
       <h1>{user.first_name}'s Playlists</h1>
       {user.playlists && user.playlists.length > 0 ? (
-        <ul>
+        <div className="playlist-grid">
           {user.playlists.map((playlist, index) => (
-            <li key={index}>
-              <h2>{playlist.name}</h2>
-              <p>Songs: {playlist.songs.length}</p>
-              <ul>
+            <div key={index} className="playlist-card">
+              <h2 className="playlist-title">{playlist.name}</h2>
+              <p className="song-count">Songs: {playlist.songs.length}</p>
+              <ul className="song-list">
                 {playlist.songs.map((song, songIndex) => (
-                  <li key={songIndex}>
-                    <img src={song.image[2]['#text']} alt={song.name} width="50" height="50" />
-                    {song.name} by {song.artist.name}
+                  <li key={songIndex} className="song-item">
+                    <img src={song.image[2]['#text']} alt={song.name} className="song-image" />
+                    <div className="song-info">
+                      <p className="song-name">{song.name}</p>
+                      <p className="artist-name">{song.artist.name}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No playlists found for this user.</p>
       )}
-      <Link to="/users">Back to Users</Link>
+      <Link to="/users" className="back-link">Back to Users</Link>
     </div>
   );
 }
