@@ -12,7 +12,7 @@ function UserPlaylists() {
   }
 
   return (
-    <div className="user-playlists">
+    <div className="user-playlists-container">
       <h1>{user.first_name}'s Playlists</h1>
       {user.playlists && user.playlists.length > 0 ? (
         <div className="playlist-grid">
