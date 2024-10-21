@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Playlists from './components/Playlists';
 import Songs from './components/Songs';
 import Users from './components/Users';
+import UserPlaylists from './components/UserPlaylists';
 import SongList from './components/SongList';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             element={<SongList onPlaylistCreate={handlePlaylistCreate} />}
           />
           <Route path="/users" element={<Users />} />
+          <Route path="/users/:userId/playlists" element={<UserPlaylists />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
