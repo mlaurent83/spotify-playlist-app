@@ -23,7 +23,6 @@ function UserPlaylists() {
               <ul className="song-list">
                 {playlist.songs.map((song, songIndex) => (
                   <li key={songIndex} className="song-item">
-                    <img src={song.image[2]['#text']} alt={song.name} className="song-image" />
                     <div className="song-info">
                       <p className="song-name">{song.name}</p>
                       <p className="artist-name">{song.artist.name}</p>
