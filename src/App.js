@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -7,13 +7,27 @@ import Songs from './components/Songs';
 import Users from './components/Users';
 import SongList from './components/SongList';
 
-
 function App() {
-  const [playlists, setPlaylists] = useState([]);
+  const [playlists, setPlaylists] = useState(() => {
+    const savedPlaylists = localStorage.getItem('userPlaylists');
+    return savedPlaylists ? JSON.parse(savedPlaylists) : [];
+  });
 
-  const handlePlaylistCreate = (newPlaylist) => {
-    setPlaylists([...playlists, newPlaylist]);
-  };
+  useEffect(() => {
+    console.log('Saving playlists to localStorage:', playlists);
+    localStorage.setItem('userPlaylists', JSON.stringify(playlists));
+  }, [playlists]);
+
+  const handlePlaylistCreate = useCallback((newPlaylist) => {
+    console.log('Creating new playlist:', newPlaylist);
+    setPlaylists(prevPlaylists => {
+      const updatedPlaylists = [...prevPlaylists, newPlaylist];
+      console.log('Updated playlists:', updatedPlaylists);
+      return updatedPlaylists;
+    });
+  }, []);
+
+  console.log('App rendered. Current playlists:', playlists);
 
   return (
     <Router>
