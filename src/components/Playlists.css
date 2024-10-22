@@ -34,3 +34,8 @@ p {
 ul {
   list-style-type: none;
 }
+
+.delete-btn{
+  height: 60px;
+  width: 60px;
+}

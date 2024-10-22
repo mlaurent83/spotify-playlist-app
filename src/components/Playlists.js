@@ -33,7 +33,7 @@ function Playlists({ playlists, onDeletePlaylist }) {
                 ))}
                  <button
                   onClick={() => onDeletePlaylist(index)}
-                  className="p-2 text-red-500 hover:text-red-700 transition-colors rounded-full hover:bg-red-100"
+                  className="delete-btn"
                   aria-label={`Delete ${playlist.name} playlist`}
                 >
                   <Trash2 size={20} />
