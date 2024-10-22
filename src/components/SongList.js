@@ -21,7 +21,7 @@ function SongList({ onPlaylistCreate }) {
             method: 'chart.gettoptracks',
             api_key: API_KEY,
             format: 'json',
-            limit: 20 // Limiting to 20 songs for this example
+            limit: 20
           }
         });
         setSongs(response.data.tracks.track);
@@ -79,7 +79,7 @@ function SongList({ onPlaylistCreate }) {
         </div>
       </div>
       <div className="playlist-section">
-        <h2>Your Playlist</h2>
+        <h2>Create your playlist</h2>
         <ul>
           {playlist.map((song) => (
             <li key={song.url}>
