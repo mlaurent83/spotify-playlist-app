@@ -68,14 +68,18 @@ function SongList({ onPlaylistCreate }) {
         <h2>Top tracks this week</h2>
         <p>Select the songs you like and create a playlist!</p>
         <div className="song-grid">
-          {songs.map((song) => (
+        {songs.map((song) => {
+          console.log(song.image);
+          const imageUrl = song.image.find(img => img.size === 'large')['#text'] || 'https://via.placeholder.com/150';          return (
             <div key={song.url} className="song-card">
-              <img src={song.image[2]['#text'] || 'https://via.placeholder.com/150'} alt={song.name} />
-              <h3>{song.name}</h3>
-              <p>{song.artist.name}</p>
-              <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
-            </div>
-          ))}
+            <img src={imageUrl} alt={song.name} />
+            <h3>{song.name}</h3>
+            <p>{song.artist.name}</p>
+            <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
+      </div>
+      );
+    })}
+
         </div>
       </div>
       <div className="playlist-section">

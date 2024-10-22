@@ -26,7 +26,7 @@
 
 .playlist-section {
   width: 25%;
-  background-color: lightgray;
+  background-color: rgba(230, 227, 227, 0.897);
   padding: 15px;
   border-radius: 8px;
 }
@@ -106,9 +106,10 @@ button:hover {
 }
 
 .playlist-section button {
-  background-color: #f44336;
+  background-color: #4CAF50;
+  margin-top: 20px;
 }
 
 .playlist-section button:hover {
-  background-color: #d32f2f;
+  background-color: #45a049;
 }
