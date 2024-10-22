@@ -27,6 +27,7 @@ p {
   text-align: center;
 }
 
+
 .playlist-page a:hover {
   background-color: #535353;
 }
@@ -38,4 +39,9 @@ ul {
 .delete-btn{
   height: 60px;
   width: 60px;
+}
+
+.song-grid{
+ display: flex;
+ align-items: center;
 }
