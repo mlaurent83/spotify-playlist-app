@@ -6,110 +6,114 @@ const API_KEY = '2138722295ab224a1895a9500759411f';
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
 
 function SongList({ onPlaylistCreate }) {
-  const [songs, setSongs] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [playlistName, setPlaylistName] = useState('');
-  const [showNameInput, setShowNameInput] = useState(false);
+    const [songs, setSongs] = useState([]);
+    const [playlist, setPlaylist] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [playlistName, setPlaylistName] = useState('');
+    const [showNameInput, setShowNameInput] = useState(false);
 
-  useEffect(() => {
-    const fetchTopTracks = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}`, {
-          params: {
-            method: 'chart.gettoptracks',
-            api_key: API_KEY,
-            format: 'json',
-            limit: 20
-          }
-        });
-        setSongs(response.data.tracks.track);
-        setIsLoading(false);
-      } catch (error) {
-        setError('Failed to fetch songs. Please try again later.');
-        setIsLoading(false);
-      }
+    useEffect(() => {
+        const fetchTopTracks = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}`, {
+                    params: {
+                        method: 'chart.gettoptracks',
+                        api_key: API_KEY,
+                        format: 'json',
+                        limit: 20
+                    }
+                });
+                console.log(response.data); // Log the response for debugging
+                setSongs(response.data.tracks.track);
+                setIsLoading(false);
+            } catch (error) {
+                setError('Failed to fetch songs. Please try again later.');
+                setIsLoading(false);
+            }
+        };
+
+        fetchTopTracks();
+    }, []);
+
+    const addToPlaylist = (song) => {
+        if (!playlist.some(item => item.url === song.url)) {
+            setPlaylist([...playlist, song]);
+        }
     };
 
-    fetchTopTracks();
-  }, []);
+    const removeFromPlaylist = (song) => {
+        setPlaylist(playlist.filter(item => item.url !== song.url));
+    };
 
-  const addToPlaylist = (song) => {
-    if (!playlist.some(item => item.url === song.url)) {
-      setPlaylist([...playlist, song]);
-    }
-  };
+    const handleMakePlaylist = () => {
+        setShowNameInput(true);
+    };
 
-  const removeFromPlaylist = (song) => {
-    setPlaylist(playlist.filter(item => item.url !== song.url));
-  };
+    const handleNameSubmit = (e) => {
+        e.preventDefault();
+        if (playlistName.trim() && playlist.length > 0) {
+            onPlaylistCreate({ name: playlistName, songs: playlist });
+            setPlaylistName('');
+            setPlaylist([]);
+            setShowNameInput(false);
+        }
+    };
 
-  const handleMakePlaylist = () => {
-    setShowNameInput(true);
-  };
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
-  const handleNameSubmit = (e) => {
-    e.preventDefault();
-    if (playlistName.trim() && playlist.length > 0) {
-      onPlaylistCreate({ name: playlistName, songs: playlist });
-      setPlaylistName('');
-      setPlaylist([]);
-      setShowNameInput(false);
-    }
-  };
+    return (
+        <div className="song-list-container">
+            <div className="songs-section">
+                <h2>Top tracks this week</h2>
+                <p>Select the songs you like and create a playlist!</p>
+                <div className="song-grid">
+                    {songs.map((song) => {
+                        // Extracting image URL safely
+                        const imageUrl = (song.image && song.image.length > 0)
+                            ? song.image.find(img => img.size === 'large')['#text'] || 'https://via.placeholder.com/150'
+                            : 'https://via.placeholder.com/150'; // Fallback image
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
-  return (
-    <div className="song-list-container">
-      <div className="songs-section">
-        <h2>Top tracks this week</h2>
-        <p>Select the songs you like and create a playlist!</p>
-        <div className="song-grid">
-        {songs.map((song) => {
-          console.log(song.image);
-          const imageUrl = song.image.find(img => img.size === 'large')['#text'] || 'https://via.placeholder.com/150';          return (
-            <div key={song.url} className="song-card">
-            <img src={imageUrl} alt={song.name} />
-            <h3>{song.name}</h3>
-            <p>{song.artist.name}</p>
-            <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
-      </div>
-      );
-    })}
-
+                        return (
+                            <div key={song.url} className="song-card">
+                                <img src={imageUrl} alt={song.name} />
+                                <h3>{song.name}</h3>
+                                <p>{song.artist.name}</p>
+                                <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            <div className="playlist-section">
+                <h2>Create your playlist</h2>
+                <ul>
+                    {playlist.map((song) => (
+                        <li key={song.url}>
+                            {song.name} - {song.artist.name}
+                            <button onClick={() => removeFromPlaylist(song)}>Remove</button>
+                        </li>
+                    ))}
+                </ul>
+                {playlist.length > 0 && !showNameInput && (
+                    <button onClick={handleMakePlaylist}>Make Playlist</button>
+                )}
+                {showNameInput && (
+                    <form onSubmit={handleNameSubmit}>
+                        <input
+                            type="text"
+                            value={playlistName}
+                            onChange={(e) => setPlaylistName(e.target.value)}
+                            placeholder="Enter playlist name"
+                            required
+                        />
+                        <button type="submit">Create Playlist</button>
+                    </form>
+                )}
+            </div>
         </div>
-      </div>
-      <div className="playlist-section">
-        <h2>Create your playlist</h2>
-        <ul>
-          {playlist.map((song) => (
-            <li key={song.url}>
-              {song.name} - {song.artist.name}
-              <button onClick={() => removeFromPlaylist(song)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-        {playlist.length > 0 && !showNameInput && (
-          <button onClick={handleMakePlaylist}>Make Playlist</button>
-        )}
-        {showNameInput && (
-          <form onSubmit={handleNameSubmit}>
-            <input
-              type="text"
-              value={playlistName}
-              onChange={(e) => setPlaylistName(e.target.value)}
-              placeholder="Enter playlist name"
-              required
-            />
-            <button type="submit">Create Playlist</button>
-          </form>
-        )}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default SongList;
