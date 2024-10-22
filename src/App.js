@@ -28,6 +28,11 @@ function App() {
     });
   }, []);
 
+  const handleDeletePlaylist = (index) => {
+    const updatedPlaylists = playlists.filter((_, i) => i !== index);
+    setPlaylists(updatedPlaylists);
+  };
+
   console.log('App rendered. Current playlists:', playlists);
 
   return (
@@ -38,7 +43,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/playlists"
-            element={<Playlists playlists={playlists} />}
+            element={<Playlists playlists={playlists}
+            onDeletePlaylist={handleDeletePlaylist}
+            />}
           />
           <Route
             path="/songs"
