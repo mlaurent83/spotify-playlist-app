@@ -18,9 +18,10 @@ export default function Users() {
         </Link>
 
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">All Users</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Our community</h1>
           <p className="text-gray-600 text-lg max-w-2xl">
-            A page where you can see all users and their playlists.
+          Discover fellow music enthusiasts and explore their carefully curated playlists.
+          Join our community to share your own musical journey.
           </p>
         </div>
 
@@ -41,16 +42,13 @@ export default function Users() {
                       <h3 className="font-semibold text-gray-900">
                         {user.first_name} {user.last_name}
                       </h3>
-                      <p className="text-sm text-gray-500">
-                        Joined {new Date(user.joined).toLocaleDateString()}
-                      </p>
+
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 text-gray-600 mb-4">
                   <Music className="w-4 h-4" />
-                  <span className="text-sm">{user.playlistCount} playlists</span>
                 </div>
 
                 <Link
