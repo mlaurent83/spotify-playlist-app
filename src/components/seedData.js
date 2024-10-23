@@ -120,7 +120,7 @@ export const initialUsers = [
     ]
   },
   {
-    id: 8,
+    id: 9,
     first_name: 'Ruth',
     last_name: "White",
     email: 'ruth@example.com',

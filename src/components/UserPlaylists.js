@@ -1,22 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Music, ChevronLeft, User, Clock, ListMusic, Play, ChevronDown, ChevronUp } from 'lucide-react';
+import { initialUsers } from './seedData.js';
 
-// Assuming this structure for the seed data
-const initialUsers = [{
-  id: 1,
-  first_name: 'John',
-  last_name: 'Doe',
-  joined: '2024-01-15',
-  playlists: [{
-    name: 'Summer Vibes',
-    createdAt: '2024-03-15',
-    songs: [
-      { name: 'Summer Song', artist: { name: 'Artist 1' }, duration: '3:45' },
-      { name: 'Beach Day', artist: { name: 'Artist 2' }, duration: '4:20' }
-    ]
-  }]
-}];
+
 
 export default function UserPlaylists() {
   const { userId } = useParams();
