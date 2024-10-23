@@ -17,13 +17,16 @@ export default function Users() {
           Back to Home
         </Link>
 
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">Our community</h1>
-          <p className="text-gray-600 text-lg max-w-2xl">
-          Discover fellow music enthusiasts and explore their carefully curated playlists.
-          Join our community to share your own musical journey.
-          </p>
-        </div>
+        <div className="mb-8 text-center">
+  <h1 className="text-4xl font-bold text-gray-900 mb-3">Our community</h1>
+  <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+    Discover fellow music enthusiasts and explore their carefully curated playlists.
+    Join our community to share your own musical journey.
+  </p>
+</div>
+
+
+
 
         {/* Users Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
