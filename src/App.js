@@ -7,6 +7,8 @@ import Songs from './components/Songs';
 import Users from './components/Users';
 import UserPlaylists from './components/UserPlaylists';
 import SongList from './components/SongList';
+import './index.css'; // Make sure this path is correct
+
 
 function App() {
   const [playlists, setPlaylists] = useState(() => {
