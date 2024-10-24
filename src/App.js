@@ -3,7 +3,6 @@ import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Playlists from './components/Playlists';
-import Songs from './components/Songs';
 import Users from './components/Users';
 import UserPlaylists from './components/UserPlaylists';
 import SongList from './components/SongList';
