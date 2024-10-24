@@ -54,6 +54,7 @@ export default function Users() {
 
                 <div className="flex items-center gap-2 text-gray-600 mb-4">
                   <Music className="w-4 h-4" />
+                  <span className="text-sm">{user.playlistCount} playlists</span>
                 </div>
 
                 <Link

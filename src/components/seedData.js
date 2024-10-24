@@ -14,6 +14,7 @@ export const initialUsers = [
       }
     ],
     joined: "02.10.2024",
+    playlistCount: 1,
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const initialUsers = [
       },
     ],
     joined: "10.10.2024",
+    playlistCount: 1,
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ export const initialUsers = [
       }
     ],
     joined: "12.10.2024",
+    playlistCount: 1,
   },
   {
     id: 4,
@@ -62,6 +65,7 @@ export const initialUsers = [
       }
     ],
     joined: "20.10.2024",
+    playlistCount: 1,
   },
   {
     id: 5,
@@ -78,6 +82,7 @@ export const initialUsers = [
       }
     ],
     joined: "01.10.2024",
+    playlistCount: 1,
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ export const initialUsers = [
       }
     ],
     joined: "11.10.2024",
+    playlistCount: 1,
   },
   {
     id: 7,
@@ -110,6 +116,7 @@ export const initialUsers = [
       }
     ],
     joined: "02.09.2024",
+    playlistCount: 1,
   },
   {
     id: 8,
@@ -126,6 +133,7 @@ export const initialUsers = [
       }
     ],
     joined: "12.10.2024",
+    playlistCount: 1,
   },
   {
     id: 9,
@@ -142,6 +150,7 @@ export const initialUsers = [
       }
     ],
     joined: "02.10.2023",
+    playlistCount: 1,
   },
   // ..
 
