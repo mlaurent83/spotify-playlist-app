@@ -102,6 +102,7 @@ function SongList({ onPlaylistCreate }) {
                   <div
                     key={song.url}
                     className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+                    style={{ maxWidth: '350px' }}
                   >
                     <img
                       src={imageUrl}
