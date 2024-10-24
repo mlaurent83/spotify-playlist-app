@@ -60,28 +60,28 @@ p {
 
 /* Center the nav links */
 .navigation {
-  display: flex; /* Flexbox to center the items */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  gap: 15px; /* Add space between buttons */
-  margin-top: 30px; /* Add some top margin for spacing */
-  background-color: transparent; /* Ensure there's no background on navigation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  background-color: transparent;
 }
 
 /* Style the navigation links */
 .navigation a {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #1db954; /* Spotify green */
+  background: linear-gradient(90deg, rgba(139,92,246,1) 35%, rgba(59,130,246,1) 100%);
   color: white;
   text-decoration: none;
-  border-radius: 25px; /* Rounded buttons */
+  border-radius: 25px;
   transition: background-color 0.3s, color 0.3s;
   text-align: center;
 }
 
 /* Hover effect for navigation links */
 .navigation a:hover {
-  background-color: #f0f0f0;
-  color: #1db954; /* Change the text color on hover */
+  background: linear-gradient(90deg, rgba(59,130,246,1) 35%, rgba(139,92,246,1) 100%);
+  color: white;
 }
