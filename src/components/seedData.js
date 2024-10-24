@@ -12,7 +12,8 @@ export const initialUsers = [
           { name: "Imagine", artist: { name: "John Lennon" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "02.10.2024",
   },
   {
     id: 2,
@@ -26,8 +27,9 @@ export const initialUsers = [
           { name: "Sweet Child O' Mine", artist: { name: "Guns N' Roses" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
           { name: "Stairway to Heaven", artist: { name: "Led Zeppelin" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
-      }
-    ]
+      },
+    ],
+    joined: "10.10.2024",
   },
   {
     id: 3,
@@ -42,7 +44,8 @@ export const initialUsers = [
           { name: "Water", artist: { name: "Tyla" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "12.10.2024",
   },
   {
     id: 4,
@@ -57,7 +60,8 @@ export const initialUsers = [
           { name: "Too Sweet", artist: { name: "Hozier" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "20.10.2024",
   },
   {
     id: 5,
@@ -72,7 +76,8 @@ export const initialUsers = [
           { name: "One of Your Girls", artist: { name: "Troye Sivan" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "01.10.2024",
   },
   {
     id: 6,
@@ -87,7 +92,8 @@ export const initialUsers = [
           { name: "Casual", artist: { name: "Chappell Roan" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "11.10.2024",
   },
   {
     id: 7,
@@ -102,7 +108,8 @@ export const initialUsers = [
           { name: "Guilty as Sin?", artist: { name: "Taylor Swift" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "02.09.2024",
   },
   {
     id: 8,
@@ -117,7 +124,8 @@ export const initialUsers = [
           { name: "One of Your Girls", artist: { name: "Troye Sivan" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "12.10.2024",
   },
   {
     id: 9,
@@ -132,7 +140,8 @@ export const initialUsers = [
           { name: "One of Your Girls", artist: { name: "Troye Sivan" }, image: [null, null, { "#text": "https://via.placeholder.com/150" }] },
         ]
       }
-    ]
+    ],
+    joined: "02.10.2023",
   },
   // ..
 
