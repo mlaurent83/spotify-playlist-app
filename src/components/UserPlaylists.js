@@ -119,10 +119,6 @@ export default function UserPlaylists() {
                       <div className="flex items-center gap-2 text-gray-600">
                         <Music className="w-4 h-4" />
                         <span className="text-sm">{playlist.songs.length} songs</span>
-                        <span className="text-sm text-gray-400">•</span>
-                        <span className="text-sm">
-                          Created {new Date(playlist.createdAt).toLocaleDateString()}
-                        </span>
                       </div>
                     </div>
                     <button
