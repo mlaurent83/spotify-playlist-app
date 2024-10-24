@@ -45,7 +45,9 @@ export default function Users() {
                       <h3 className="font-semibold text-gray-900">
                         {user.first_name} {user.last_name}
                       </h3>
-
+                      <p className="text-sm text-gray-500">
+                        Joined {new Date(user.joined).toLocaleDateString()}
+                      </p>
                     </div>
                   </div>
                 </div>
