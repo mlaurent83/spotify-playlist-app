@@ -99,7 +99,6 @@ export default function UserPlaylists() {
             >
               <option value="name">Name</option>
               <option value="songs">Number of Songs</option>
-              <option value="date">Date Created</option>
             </select>
           </div>
         </div>
