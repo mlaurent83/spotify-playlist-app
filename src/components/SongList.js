@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Music, ChevronLeft, Plus, X } from 'lucide-react';
 import axios from 'axios';
+import MusicPlaceholder from './MusicPlaceholder';
 
 const API_KEY = '2138722295ab224a1895a9500759411f';
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
@@ -25,6 +26,7 @@ function SongList({ onPlaylistCreate }) {
             limit: 20
           }
         });
+        console.log('Track data:', response.data.tracks.track[0]);
         setSongs(response.data.tracks.track);
         setIsLoading(false);
       } catch (error) {
@@ -93,36 +95,41 @@ function SongList({ onPlaylistCreate }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {songs.map((song) => {
-                const imageUrl = (song.image && song.image.length > 0)
-                  ? song.image.find(img => img.size === 'large')['#text'] || '/api/placeholder/150/150'
-                  : '/api/placeholder/150/150';
+            {songs.map((song) => {
+  const defaultLastFmImage = "2a96cbd8b46e442fc41c2b86b821562f.png";
+  const imageUrl = song.image?.find(img => img.size === 'large')?.['#text'] || '';
+  const isDefaultImage = imageUrl.includes(defaultLastFmImage);
 
-                return (
-                  <div
-                    key={song.url}
-                    className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
-                    style={{ maxWidth: '350px' }}
-                  >
-                    <img
-                      src={imageUrl}
-                      alt={song.name}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <h3 className="font-semibold text-gray-900 mb-1">{song.name}</h3>
-                      <p className="text-sm text-gray-500 mb-4">{song.artist.name}</p>
-                      <button
-                        onClick={() => addToPlaylist(song)}
-                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md hover:from-purple-600 hover:to-blue-600 transition-colors"
-                      >
-                        <Plus className="w-4 h-4" />
-                        Add to Playlist
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
+  return (
+    <div
+      key={song.url}
+      className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+      style={{ maxWidth: '350px' }}
+    >
+      {imageUrl && !isDefaultImage ? (
+        <img
+          src={imageUrl}
+          alt={song.name}
+          className="w-full h-48 object-cover"
+          onError={() => <MusicPlaceholder />}
+        />
+      ) : (
+        <MusicPlaceholder />
+      )}
+      <div className="p-4">
+        <h3 className="font-semibold text-gray-900 mb-1">{song.name}</h3>
+        <p className="text-sm text-gray-500 mb-4">{song.artist.name}</p>
+        <button
+          onClick={() => addToPlaylist(song)}
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md hover:from-purple-600 hover:to-blue-600 transition-colors"
+        >
+          <Plus className="w-4 h-4" />
+          Add to Playlist
+        </button>
+      </div>
+    </div>
+  );
+})}
             </div>
           </div>
 
