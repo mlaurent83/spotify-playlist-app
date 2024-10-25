@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Music, ChevronLeft, Trash2 } from 'lucide-react';
+import MusicPlaceholder from './MusicPlaceholder';
 
 function Playlists({ playlists, onDeletePlaylist }) {
   return (
@@ -64,26 +65,36 @@ function Playlists({ playlists, onDeletePlaylist }) {
 
                 <div className="p-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {playlist.songs.map((song) => (
-                      <div
-                        key={song.url}
-                        className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-                      >
-                        <img
-                          src={song.image[2]['#text'] || '/api/placeholder/150/150'}
-                          alt={song.name}
-                          className="w-full h-40 object-cover"
-                        />
-                        <div className="p-4">
-                          <h3 className="font-semibold text-gray-900 mb-1 truncate">
-                            {song.name}
-                          </h3>
-                          <p className="text-sm text-gray-500 truncate">
-                            {song.artist.name}
-                          </p>
+                    {playlist.songs.map((song) => {
+                      const defaultLastFmImage = "2a96cbd8b46e442fc41c2b86b821562f.png";
+                      const imageUrl = song.image[2]['#text'] || ''; // Adjust for your image size
+                      const isDefaultImage = imageUrl.includes(defaultLastFmImage);
+
+                      return (
+                        <div
+                          key={song.url}
+                          className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                        >
+                          {imageUrl && !isDefaultImage ? (
+                            <img
+                              src={imageUrl}
+                              alt={song.name}
+                              className="w-full h-40 object-cover"
+                            />
+                          ) : (
+                            <MusicPlaceholder />
+                          )}
+                          <div className="p-4">
+                            <h3 className="font-semibold text-gray-900 mb-1 truncate">
+                              {song.name}
+                            </h3>
+                            <p className="text-sm text-gray-500 truncate">
+                              {song.artist.name}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>

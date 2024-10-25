@@ -96,9 +96,9 @@ function SongList({ onPlaylistCreate }) {
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {songs.map((song) => {
-  const defaultLastFmImage = "2a96cbd8b46e442fc41c2b86b821562f.png";
-  const imageUrl = song.image?.find(img => img.size === 'large')?.['#text'] || '';
-  const isDefaultImage = imageUrl.includes(defaultLastFmImage);
+              const defaultLastFmImage = "2a96cbd8b46e442fc41c2b86b821562f.png";
+              const imageUrl = song.image?.find(img => img.size === 'large')?.['#text'] || '';
+              const isDefaultImage = imageUrl.includes(defaultLastFmImage);
 
   return (
     <div
