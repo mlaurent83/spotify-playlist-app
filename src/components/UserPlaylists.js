@@ -131,12 +131,6 @@ export default function UserPlaylists() {
                     </button>
                   </div>
 
-                  {/* Play Button */}
-                  <button className="flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-4">
-                    <Play className="w-4 h-4" />
-                    <span className="text-sm font-medium">Play All</span>
-                  </button>
-
                   {/* Expanded Song List */}
                   {expandedPlaylist === index && (
                     <div className="border-t border-gray-100 mt-4 pt-4">
