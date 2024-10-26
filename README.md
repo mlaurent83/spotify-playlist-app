@@ -36,6 +36,8 @@ To run the project locally, follow these steps:
 Once the app is running, you will see the top tracks displayed on the songs page.
 Click on "Add to Playlist" to add a song to your playlist.
 Use the "Remove" button to remove a song from your playlist.
+See all users in the users page.
+Click on a user to see their playlists. 
 
 ## API
 This app utilizes the Last.fm API to fetch top tracks. 
