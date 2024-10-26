@@ -8,7 +8,6 @@
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -37,15 +36,14 @@ To run the project locally, follow these steps:
 Once the app is running, you will see the top tracks displayed on the songs page.
 Click on "Add to Playlist" to add a song to your playlist.
 Use the "Remove" button to remove a song from your playlist.
+See all users in the users page.
+Click on a user to see their playlists. 
 
 ## API
 This app utilizes the Last.fm API to fetch top tracks. 
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements or want to contribute, please fork the repository and submit a pull request.
-
-## License
-This project is licensed under the MIT License 
 
 ## Acknowledgments
 - Last.fm for the API that provides song data.
