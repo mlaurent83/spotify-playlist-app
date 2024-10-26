@@ -8,7 +8,6 @@
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -43,9 +42,6 @@ This app utilizes the Last.fm API to fetch top tracks.
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements or want to contribute, please fork the repository and submit a pull request.
-
-## License
-This project is licensed under the MIT License 
 
 ## Acknowledgments
 - Last.fm for the API that provides song data.
