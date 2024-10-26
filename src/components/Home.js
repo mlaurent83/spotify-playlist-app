@@ -27,7 +27,7 @@ function Home() {
             fpsLimit: 60,
             particles: {
               color: {
-                value: "#34495e",
+                value: "rgba(139,92,246,1)",
               },
               move: {
                 direction: "none",
